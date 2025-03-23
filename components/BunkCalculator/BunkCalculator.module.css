@@ -1,0 +1,252 @@
+@keyframes pulseGlow {
+  0% {
+    box-shadow: var(--card-shadow), 0 0 5px rgba(127, 127, 255, 0.3);
+    border-color: rgba(127, 127, 255, 0.3);
+  }
+  50% {
+    box-shadow: var(--card-shadow), 0 0 12px rgba(127, 127, 255, 0.5);
+    border-color: rgba(127, 127, 255, 0.6);
+  }
+  100% {
+    box-shadow: var(--card-shadow), 0 0 5px rgba(127, 127, 255, 0.3);
+    border-color: rgba(127, 127, 255, 0.3);
+  }
+}
+
+.bunkCalculator {
+  background: var(--card-bg-transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: var(--card-shadow), 0 0 8px rgba(127, 127, 255, 0.4);
+  transition: all 0.3s ease;
+  border: 1.5px solid rgba(127, 127, 255, 0.4);
+  position: relative;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.bunkHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.bunkHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.infoIcon {
+  cursor: help;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.infoIcon:hover {
+  opacity: 1;
+}
+
+.currentPercentage {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  opacity: 0.8;
+}
+
+.bunkHeader h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.4px;
+}
+
+.bunkContent {
+  display: flex;
+  align-items: center;
+  padding: 22px 20px;
+  gap: 16px;
+}
+
+.bunkIcon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.bunkIcon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.above {
+  background-color: transparent;
+}
+
+.above .bunkIcon {
+  background-color: transparent;
+  color: var(--excellent-color);
+}
+
+.below {
+  background-color: transparent;
+}
+
+.below .bunkIcon {
+  background-color: transparent;
+  color: var(--poor-color);
+}
+
+.exact {
+  background-color: transparent;
+}
+
+.exact .bunkIcon {
+  background-color: transparent;
+  color: var(--average-color);
+}
+
+.excellentIcon {
+  color: var(--excellent-color);
+}
+
+.poorIcon {
+  color: var(--poor-color);
+}
+
+.neutralIcon {
+  color: var(--text-tertiary);
+}
+
+.bunkDetails {
+  flex: 1;
+}
+
+.bunkMessage {
+  margin: 0 0 6px 0;
+  font-size: 0.97rem;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.bunkCount {
+  display: flex;
+  align-items: center; /* Changed from baseline to center */
+  gap: 6px;
+  font-weight: 700;
+  font-size: 1.45rem;
+  color: var(--text-primary);
+  line-height: 1; /* Added to ensure consistent height */
+}
+
+.bunkUnit {
+  font-size: 0.85rem;
+  font-weight: normal;
+  opacity: 0.75;
+  color: var(--text-secondary);
+  padding-top: 2px; /* Added to fine-tune vertical alignment */
+  line-height: 1.2; /* Added for better text alignment */
+}
+
+.updateInfo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  padding: 10px 20px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  border-top: 1px solid var(--border-color);
+  background-color: rgba(127, 127, 255, 0.03);
+  border-radius: 0 0 16px 16px;
+}
+
+.updateInfo svg {
+  opacity: 0.75;
+}
+
+.updateInfo span {
+  font-size: 0.75rem;
+  letter-spacing: 0.2px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .bunkCalculator {
+    border-radius: 14px;
+    margin-bottom: 16px;
+  }
+  
+  .bunkHeader {
+    padding: 14px 18px;
+  }
+  
+  .bunkHeader h3 {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
+  }
+  
+  .bunkContent {
+    padding: 18px;
+  }
+  
+  .bunkIcon {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .bunkMessage {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  
+  .bunkCount {
+    font-size: 1.3rem;
+  }
+  
+  .updateInfo {
+    padding: 10px 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bunkCalculator {
+    margin-bottom: 15px;
+  }
+  
+  .bunkHeader {
+    padding: 12px 16px;
+  }
+  
+  .bunkContent {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .bunkIcon {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+  }
+  
+  .bunkIcon svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  .bunkMessage {
+    font-size: 0.85rem;
+    line-height: 1.35;
+  }
+}

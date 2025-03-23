@@ -1,0 +1,437 @@
+.attendanceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card-bg-transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border-color-transparent);
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.attendanceContainer:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-color);
+  box-shadow: var(--hover-shadow);
+}
+
+.attendanceTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Circle Progress Container */
+.circleProgressContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 10px 0 20px 0;
+}
+
+.circleWrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circleSvg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.circleBackground {
+  stroke: var(--border-color, rgba(0, 0, 0, 0.1));
+  transition: stroke 0.3s ease;
+}
+
+.circleProgress {
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease;
+  filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.2));
+}
+
+.onTrackCircle {
+  stroke: var(--excellent-color, #10B981);
+}
+
+.warningCircle {
+  stroke: var(--average-color);
+}
+
+.dangerCircle {
+  stroke: var(--poor-color);
+}
+
+.attentionCircle {
+  stroke: #6B7280;
+}
+
+.thresholdCircleMarker {
+  stroke: var(--text-tertiary, rgba(107, 114, 128, 0.7));
+  opacity: 0.5;
+  stroke-linecap: round;
+  stroke-dasharray: 4, 6;
+}
+
+.thresholdText {
+  font-size: 0.7rem;
+  fill: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.circleContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  text-align: center;
+  padding: 10px;
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circlePercentage {
+  font-size: min(calc(2rem + 0.5vw), 2.2rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 10px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  word-break: break-word;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.statusWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.statusLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.onTrackStatus {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: var(--excellent-color, #10B981);
+}
+
+.warningStatus {
+  background-color: rgba(245, 158, 11, 0.12);
+  color: var(--average-color);
+}
+
+.dangerStatus {
+  background-color: rgba(239, 68, 68, 0.12);
+  color: var(--poor-color);
+}
+
+.attentionStatus {
+  background-color: rgba(107, 114, 128, 0.12);
+  color: #6B7280;
+}
+
+/* Progress Bar Container */
+.progressContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 5px 0 15px 0;
+}
+
+/* Percentage Display */
+.percentageDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 2px;
+  margin-bottom: 5px;
+}
+
+.percentageValue {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.statusLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.onTrackStatus {
+  background-color: rgba(16, 185, 129, 0.12);
+  color: var(--excellent-color, #10B981);
+}
+
+.attentionStatus {
+  background-color: rgba(107, 114, 128, 0.12);
+  color: #6B7280;
+}
+
+/* Progress Bar */
+.progressBarWrapper {
+  width: 100%;
+  position: relative;
+  padding: 8px 0;
+}
+
+.progressBarBackground {
+  width: 100%;
+  height: 8px;
+  background-color: var(--border-color);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressBar {
+  height: 100%;
+  border-radius: 4px;
+  position: relative;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.onTrackBar {
+  background-color: var(--excellent-color, #10B981);
+}
+
+.warningBar {
+  background-color: #F59E0B;
+}
+
+.dangerBar {
+  background-color: #DC2626;
+}
+
+.attentionBar {
+  background-color: #6B7280;
+}
+
+.shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmerEffect 2s infinite;
+}
+
+@keyframes shimmerEffect {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(400%); }
+}
+
+/* Threshold Marker */
+.thresholdMarker {
+  position: absolute;
+  top: -4px;
+  width: 2px;
+  height: calc(100% + 8px);
+  background-color: var(--text-tertiary);
+  opacity: 0.4;
+  z-index: 1;
+}
+
+.thresholdLabel {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-tertiary);
+  white-space: nowrap;
+}
+
+/* Updated Information */
+.updateInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+  text-align: center;
+}
+
+.updateLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: var(--text-tertiary);
+  font-weight: 500;
+}
+
+.updateDateTime {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+/* Dark Theme Support */
+:global(.dark-theme) .onTrackStatus {
+  background-color: rgba(16, 185, 129, 0.25);
+}
+
+:global(.dark-theme) .warningStatus {
+  background-color: rgba(245, 158, 11, 0.25);
+}
+
+:global(.dark-theme) .dangerStatus {
+  background-color: rgba(220, 38, 38, 0.25);
+}
+
+:global(.dark-theme) .attentionStatus {
+  background-color: rgba(107, 114, 128, 0.25);
+}
+
+:global(.dark-theme) .progressBarBackground {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-theme) .thresholdMarker {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+:global(.dark-theme) .shine {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+}
+
+:global(.dark-theme) .circleBackground {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+:global(.dark-theme) .thresholdCircleMarker {
+  stroke: rgba(255, 255, 255, 0.3);
+}
+
+:global(.dark-theme) .circleContent {
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .attendanceContainer {
+    padding: 15px;
+  }
+  
+  .percentageValue {
+    font-size: 1.6rem;
+  }
+  
+  .statusLabel {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  .circleWrapper {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .circlePercentage {
+    font-size: min(calc(1.2rem + 0.5vw), 1.8rem);
+    margin-bottom: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .attendanceContainer {
+    padding: 12px;
+  }
+  
+  .attendanceTitle {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+  }
+  
+  .percentageValue {
+    font-size: 1.4rem;
+  }
+  
+  .progressBarBackground {
+    height: 6px;
+  }
+  
+  .updateLabel {
+    font-size: 0.6rem;
+  }
+  
+  .updateDateTime {
+    font-size: 0.7rem;
+  }
+
+  .circleWrapper {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .circlePercentage {
+    font-size: min(calc(1rem + 0.5vw), 1.5rem);
+    margin-bottom: 4px;
+  }
+  
+  .statusLabel {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+  }
+}
+
+@media (max-width: 360px) {
+  .circleWrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .circleContent {
+    padding: 5px;
+  }
+  
+  .circlePercentage {
+    font-size: min(calc(0.8rem + 0.5vw), 1.2rem);
+    margin-bottom: 2px;
+  }
+  
+  .statusLabel {
+    font-size: 0.7rem;
+    padding: 3px 7px;
+  }
+}

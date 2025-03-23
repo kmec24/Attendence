@@ -1,10 +1,11 @@
-module.exports = {
-  trailingSlash: true,
-  exportPathMap: async function () {
-    return {
-      '/': { page: '/' },
-      '/birthday': { page: '/birthday' },
-      '/academic-calendar': { page: '/academic-calendar' },
-    }
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-}
+  reactStrictMode: true,
+};
+
+module.exports = nextConfig;

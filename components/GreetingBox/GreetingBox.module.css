@@ -1,0 +1,69 @@
+.greetingBox {
+    background: var(--card-bg-transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color-transparent);
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.greetingBox:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-color);
+    box-shadow: var(--hover-shadow);
+}
+  
+.greetingBoxInner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+  
+.greetingText {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0 0 0.5rem 0;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+  
+.greetingTimeContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+  
+.greetingTime {
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    width: 100%;
+    line-height: 1.2;
+    display: block;
+}
+  
+@media (max-width: 768px) {
+    .greetingBox {
+        padding: 1.25rem;
+    }
+  
+    .greetingText {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+    }
+}
+  
+@media (min-width: 769px) {
+    .greetingText {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+}
